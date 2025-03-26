@@ -32,6 +32,26 @@
     </div>
   </nav>
 
+  <!-- Popup Notification -->
+  <div class="modal fade" id="admissionPopup" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Admissions Open!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>KCET Agriculture & Veterinary Practical examination Coaching</strong> – Achieve Practical Perfection with expert guidance!</p>
+          <p>📢 Enroll now for Farm Sciences Practical Exam Coaching and boost your chances of success.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="kcet-agriculturist.html" class="btn btn-success">📩 Get More Info Now!</a>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <section id="home" class="hero-section">
     <div class="container">
@@ -251,6 +271,37 @@
         submitBtn.disabled = isLoading;
         btnText.textContent = isLoading ? 'Sending...' : 'Send Message';
         btnSpinner.classList.toggle('d-none', !isLoading);
+      }
+    });
+
+    // Show popup after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const shouldShowPopup = () => {
+        return sessionStorage.getItem('popupDismissed') !== 'true';
+      };
+    
+      const initPopup = () => {
+        if (shouldShowPopup()) {
+          const popupElement = document.getElementById('admissionPopup');
+          const popup = new bootstrap.Modal(popupElement);
+          
+          setTimeout(() => {
+            popup.show();
+          }, 2000);
+    
+          popupElement.addEventListener('hidden.bs.modal', function() {
+            sessionStorage.setItem('popupDismissed', 'true');
+          });
+    
+          const ctaButton = popupElement.querySelector('.btn-success');
+          ctaButton.addEventListener('click', function() {
+            console.log('Popup CTA clicked');
+          });
+        }
+      };
+    
+      if (document.getElementById('admissionPopup')) {
+        initPopup();
       }
     });
   </script>
