@@ -40,6 +40,41 @@ h1, h2, h3 {
   color: #2c3e50;
 }
 
+/* Popup Notification Styles */
+#admissionPopup .modal-content {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#admissionPopup .modal-header {
+  border-bottom: none;
+  padding: 1rem 1.5rem;
+}
+
+#admissionPopup .modal-body {
+  padding: 1.5rem;
+  font-size: 1.1rem;
+}
+
+#admissionPopup .modal-footer {
+  border-top: none;
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+}
+
+#admissionPopup .btn-success {
+  background-color: #2e8b57;
+  border-color: #2e8b57;
+  font-weight: 500;
+}
+
+#admissionPopup .btn-success:hover {
+  background-color: #267349;
+  border-color: #267349;
+}
+
+
 /* Show Academy Name on Desktop Screens */
 @media (min-width: 992px) {
   .navbar-brand .academy-name {
