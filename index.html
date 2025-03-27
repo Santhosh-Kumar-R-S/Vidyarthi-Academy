@@ -65,11 +65,16 @@
 
   <!-- Scrolling Banner Section -->
   <section class="scrolling-banner">
-    <div class="scrolling-container">
-      <img src="Call-to-action.png" alt="Call to Action" class="scrolling-image">
-      <img src="Call-to-action.png" alt="Call to Action" class="scrolling-image">
+    <button class="nav-arrow arrow-left" onclick="moveSlide(-1)">❮</button>
+    <button class="nav-arrow arrow-right" onclick="moveSlide(1)">❯</button>
+    
+    <div class="scrolling-container" id="scroller">
+      <img src="Call-to-action.svg" alt="Call to Action" class="scrolling-image">
+      <img src="Batch_1.svg" alt="Batch - 1 Achievement" class="scrolling-image">
+      <img src="Batch_2.svg" alt="Batch - 2 Achievement" class="scrolling-image">
     </div>
   </section>
+  
 
   <!-- About Section -->
   <section id="about" class="about-section">
@@ -304,6 +309,53 @@
         initPopup();
       }
     });
+  </script>
+
+  <script>
+    let currentIndex = 0;
+    const totalImages = 3;
+    const scroller = document.getElementById('scroller');
+    let autoScrollTimeout;
+    let isPaused = false;
+  
+    // Auto-scroll function
+    function autoScroll() {
+      if (isPaused) return;
+      
+      currentIndex = (currentIndex + 1) % totalImages;
+      scroller.style.transform = `translateX(-${currentIndex * 25}%)`;
+      
+      // Pause for 3 seconds before next slide
+      autoScrollTimeout = setTimeout(autoScroll, 3000);
+    }
+  
+    // Manual navigation
+    function moveSlide(direction) {
+      // Clear any pending auto-scroll
+      clearTimeout(autoScrollTimeout);
+      
+      currentIndex = (currentIndex + direction + totalImages) % totalImages;
+      scroller.style.transform = `translateX(-${currentIndex * 25}%)`;
+      
+      // Restart auto-scroll after manual navigation
+      if (!isPaused) {
+        autoScrollTimeout = setTimeout(autoScroll, 3000);
+      }
+    }
+  
+    // Pause on hover
+    document.querySelector('.scrolling-banner').addEventListener('mouseenter', () => {
+      isPaused = true;
+      clearTimeout(autoScrollTimeout);
+    });
+  
+    document.querySelector('.scrolling-banner').addEventListener('mouseleave', () => {
+      isPaused = false;
+      autoScroll();
+    });
+  
+    // Start auto-scrolling
+    autoScroll();
   </script>
 </body>
 </html>

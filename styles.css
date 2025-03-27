@@ -166,27 +166,51 @@ h1, h2, h3 {
   overflow: hidden;
   background-color: #f8f9fa;
   padding: 20px 0;
+  position: relative;
 }
 
 .scrolling-container {
   display: flex;
-  width: 200%;
-  animation: scrollBanner 20s linear infinite;
+  width: 400%; /* 4 images */
+  transition: transform 0.5s ease;
 }
 
 .scrolling-image {
-  width: 50%;
+  width: 25%; /* Each image takes 25% width */
   height: auto;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
-@keyframes scrollBanner {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-.scrolling-banner:hover .scrolling-container {
-  animation-play-state: paused;
+.scrolling-banner:hover .nav-arrow {
+  opacity: 1;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.nav-arrow:hover {
+  background: rgba(0,0,0,0.8);
 }
 
 /* About Section */
@@ -237,6 +261,7 @@ h1, h2, h3 {
 
 .course-card {
   background: #fff;
+  cursor: pointer;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -513,5 +538,25 @@ textarea.form-control {
   
   .contact-section p {
       font-size: 1rem;
+  }
+}
+
+
+.pad {
+  padding: 10px 20px !important; 
+}
+
+
+@media (max-width: 768px) {
+  .pad {
+    padding: 8px 16px !important;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .pad {
+    padding: 6px 12px !important;
+    font-size: 0.9rem !important;
   }
 }
