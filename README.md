@@ -1,9 +1,9 @@
 # KCET Counseling Guidance Portal
 ## Project Preview:
-### Laanding Page in Desktop Size
+1. Landing Page in Desktop Size
 ![Project Preview](https://github.com/user-attachments/assets/eb55ba49-216c-4f14-84e1-b43c39be1ebf)
 
-### Laanding Page in Mobile Size(*Responsive*)
+2. Landing Page in Mobile Size(*Responsive*)
 ![image](https://github.com/user-attachments/assets/62bc4da7-7c30-46f3-9fd4-61ee95cd2c06)
 
 
