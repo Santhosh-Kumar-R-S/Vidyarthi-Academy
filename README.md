@@ -66,7 +66,7 @@ kcet-counseling/
 
 ### Installation
 ```bash
-git clone https://github.com/yourusername/kcet-counseling.git
+git clone https://github.com/Santhosh-Kumar-R-S/Vidyarthi-Academy.git
 cd kcet-counseling
 ```
 
