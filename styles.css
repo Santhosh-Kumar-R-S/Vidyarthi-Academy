@@ -235,46 +235,52 @@ h1, h2, h3 {
   font-size: 18px;
 }
 
-/* Founder Section Styles */
+/* Founder Section */
 .founder-section {
-  background-color: #f8f9fa;
-}
-
-.founder-image {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border: 5px solid white;
+  overflow: hidden; /* Prevents horizontal overflow */
+  width: 100%; /* Ensures full width */
 }
 
 .founder-message-card {
-  background-color: white;
-  border-radius: 10px;
-  position: relative;
+  max-width: 100%; /* Ensures card doesn't exceed container */
+  box-sizing: border-box; /* Includes padding in width calculation */
 }
 
-.founder-message-card:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 100%;
-  background-color: #2e8b57;
-  border-radius: 10px 0 0 10px;
-}
-
-.signature {
-  font-style: italic;
-}
-
-@media (max-width: 991.98px) {
-  .founder-image {
-    width: 200px;
-    height: 200px;
+/* Mobile-specific fixes */
+@media (max-width: 767.98px) {
+  .founder-section .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .founder-message-card {
+    padding: 20px !important; /* Reduces padding on mobile */
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .founder-section .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .founder-section [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
+/* For very small screens */
+@media (max-width: 575.98px) {
+  .founder-message-card {
+    padding: 15px !important;
+  }
+  
+  body, html {
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 100%;
+  }
+}
 /* Courses Section */
 .courses-section {
   padding: 80px 0;
